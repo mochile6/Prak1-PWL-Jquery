@@ -14,13 +14,13 @@ $(document).ready(function () {
       jumlah: 5,
     },
     {
-      namaproduk:"Burj Khalifa",
-      jumlah:5,
+      namaproduk: "Burj Khalifa",
+      jumlah: 5,
     },
     {
       namaproduk: "Rudal Hipersonik",
       jumlah: 10,
-    }
+    },
   ];
   var produk = [
     "Jet Tempur",
@@ -29,14 +29,14 @@ $(document).ready(function () {
     "Burj Khalifa",
     "Rudal Hipersonik",
   ];
-  
+
   //hide produk name when its not selected
   var n = 1;
   $("#add-button").hide();
   $("#produk-" + n).change(function () {
     $("#add-button").show();
   });
-  
+
   //show product when pesan produk clicked
   let pesanan = "";
   $("#add-pesanan").click(function () {
@@ -49,11 +49,11 @@ $(document).ready(function () {
         produkquantity[jumlah_idx].jumlah -= $("#jumlah-" + i).val();
         //output message
         pesanan +=
-          "<li>" +
+          "<ol>" +
           $("#produk-" + i).val() +
           " (" +
           $("#jumlah-" + i).val() +
-          ")</li>";
+          ")</ol>";
         $("#list-produk").html(`${pesanan}`);
       } else {
         alert(
@@ -61,20 +61,22 @@ $(document).ready(function () {
         );
       }
     }
+    //show name of pemesan
+    let nama = $("#nama").html(`${$("#nama-pembeli").val()}`);
+    $("#nama").show() = nama;
   });
 
   //menambahkan produk
   $("#add-button").click(function () {
     let jumlah_idx = produkquantity.findIndex(
-      (data) => data.namaproduk === $("#produk-" + n).val(),
+      (data) => data.namaproduk === $("#produk-" + n).val()
     );
     n += 1;
     let pesanan = `<div class="clearfix cont-2"><div class="left" id="id-${n}"><label for="produk-${n}">Produk</label><br><select id="produk-${n}" required><option value="" hidden selected>Pilih produk</option>`;
     //mapping produk ke select
     produk.map((data) => {
       pesanan += `<option value="${data}">${data}</option>`;
-    }
-  );
+    });
     // create input jumlah
     pesanan += `</select><br></div><div class="left cont-3"><label for="jumlah-${n}" style="padding-left: 5px;">Jumlah</label><br><input type="nber" id="jumlah-${n}" class="jumlah" required><br></div>`;
     //create button hapus
@@ -89,8 +91,3 @@ $(document).ready(function () {
     });
   });
 });
-// show name when form is filled
-function shownama (){
-  var nama = $("#nama").html(`${$("#nama-pembeli").val()}`);
-  $("#nama").show() = nama;
-  }
