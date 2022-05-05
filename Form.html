@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./Form.js"></script>
+  <link href="./Form.css" rel="stylesheet" >
+  <title>Tugas Praktikum 1 PWL</title>
+</head>
+<body>
+  <header>
+    <h2>PEMESANAN PRODUK</h2>
+    <hr>
+  </header>
+  <div class="container">
+    <h3 style="color: red ;" id="nama"></h1>
+    <h3 style="color: royalblue ;" id="list-produk"></h3>
+    <div class="form-container">
+      <div class="form-pesanan">
+        <h2>Produk</h2>
+        <form id="form" onsubmit="return false">
+          <div class="pad-right">
+            <h3>Nama Pemesan</h3><br>
+            <input type="text" id="nama-pembeli" placeholder="name" style="width: 100%;" onchange="shownama()" required>
+          </div>
+          <h3>Pilih produk</h3>
+          <div class="clearfix cont-2">
+            <div class="left">
+              <label for="produk-1" style="padding-left: 5px, top = 5px;">Produk</label><br>
+              <select id="produk-1" required  >
+                <option value="0" hidden selected>Pilih produk</option>
+                <option value="Jet Tempur">Jet Tempur</option>
+                <option value="Nuklir Hiroshima">Nuklir Hiroshima</option>
+                <option value="Infinity Stone">Infinity Stone</option>
+                <option value="Burj Khalifa">Burj Khalifa</option>
+                <option value="Rudal Hipersonik">Rudal Hipersonik</option>
+              </select>
+              <br>
+            </div>
+            <div class="left cont-3">
+              <label for="jumlah-1" style="padding-left: 5px, top = 5px;">Jumlah</label><br>
+              <input type="number" id="jumlah-1" class="jumlah" required><br>
+            </div>
+          </div>
+          <button id="add-button" class="btn-tambah ">Tambah Produk</button><br>
+          <button id="add-pesanan" class="btn-pesan ">Pesan Produk</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
